@@ -1,0 +1,124 @@
+MongoDB shell version: 2.6.1
+connecting to: test
+> use soldier
+switched to db soldier
+> db.addUser("admin","admin")
+WARNING: The 'addUser' shell helper is DEPRECATED. Please use 'createUser' inste
+ad
+Successfully added user: { "user" : "admin", "roles" : [ "dbOwner" ] }
+> show dbs
+admin  0.078GB
+local  0.078GB
+> use soldier
+switched to db soldier
+> db.addUser("admin","admin")
+WARNING: The 'addUser' shell helper is DEPRECATED. Please use 'createUser' inste
+ad
+2014-06-11T01:18:11.614+0400 Error: couldn't add user: User "admin@soldier" alre
+ady exists at src/mongo/shell/db.js:1004
+> db.users.save({username:"admin"})
+WriteResult({ "nInserted" : 1 })
+> db.users.find()
+{ "_id" : ObjectId("539776575c2c073008ad427a"), "username" : "admin" }
+> show dbs
+admin    0.078GB
+local    0.078GB
+soldier  0.078GB
+> db.createcollection(soldier)
+2014-06-11T01:23:37.877+0400 ReferenceError: soldier is not defined
+> db.createcollection("soldier")
+2014-06-11T01:24:41.166+0400 TypeError: Property 'createcollection' of object so
+ldier is not a function
+> db.createCollection("soldier")
+{ "ok" : 1 }
+> db.createCollection("Weapon")
+{ "ok" : 1 }
+> db.createCollection("Equipment")
+{ "ok" : 1 }
+> db.createCollection("Armory")
+{ "ok" : 1 }
+> db.soldier.ensureIndex({"Name":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+> db.soldier.ensureIndex({"Surname":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 2,
+        "numIndexesAfter" : 3,
+        "ok" : 1
+}
+> db.soldier.ensureIndex({"Height":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 3,
+        "numIndexesAfter" : 4,
+        "ok" : 1
+}
+> db.soldier.ensureIndex({"Weight":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 4,
+        "numIndexesAfter" : 5,
+        "ok" : 1
+}
+> db.soldier.ensureIndex({"Birth Year":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 5,
+        "numIndexesAfter" : 6,
+        "ok" : 1
+}
+> db.soldier.ensureIndex({"Rank":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 6,
+        "numIndexesAfter" : 7,
+        "ok" : 1
+}
+> db.Weapon.ensureIndex({"Name":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+> db.Weapon.ensureIndex({"Calibre":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 2,
+        "numIndexesAfter" : 3,
+        "ok" : 1
+}
+> db.Weapon.ensureIndex({"Fire Rate":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 3,
+        "numIndexesAfter" : 4,
+        "ok" : 1
+}
+> db.Weapon.ensureIndex({"Firing Distance":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 4,
+        "numIndexesAfter" : 5,
+        "ok" : 1
+}
+> db.Weapon.ensureIndex({"Price":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 5,
+        "numIndexesAfter" : 6,
+        "ok" : 1
+}
+> db.Weapon.ensureIndex({"Image":1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 6,
+        "numIndexesAfter" : 7,
+        "ok" : 1
+}
+> db..ensureIndex({"":1})
